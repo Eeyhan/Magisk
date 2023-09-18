@@ -1,4 +1,4 @@
-package com.topjohnwu.magisk.core.su
+package com.topjohnwu.magisk.core.geek
 
 import android.content.Context
 import android.os.Bundle
@@ -10,8 +10,8 @@ import com.topjohnwu.magisk.core.di.ServiceLocator
 import com.topjohnwu.magisk.core.ktx.getLabel
 import com.topjohnwu.magisk.core.ktx.getPackageInfo
 import com.topjohnwu.magisk.core.ktx.toast
-import com.topjohnwu.magisk.core.model.su.SuPolicy
-import com.topjohnwu.magisk.core.model.su.createSuLog
+import com.topjohnwu.magisk.core.model.geek.SuPolicy
+import com.topjohnwu.magisk.core.model.geek.createSuLog
 import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 

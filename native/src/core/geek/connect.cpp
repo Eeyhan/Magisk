@@ -5,7 +5,7 @@
 #include <selinux.hpp>
 #include <magisk.hpp>
 
-#include "su.hpp"
+#include "geek.hpp"
 
 using namespace std;
 

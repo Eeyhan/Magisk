@@ -6,7 +6,7 @@ import com.topjohnwu.magisk.R
 import com.topjohnwu.magisk.core.di.AppContext
 import com.topjohnwu.magisk.core.ktx.timeDateFormat
 import com.topjohnwu.magisk.core.ktx.toTime
-import com.topjohnwu.magisk.core.model.su.SuLog
+import com.topjohnwu.magisk.core.model.geek.SuLog
 import com.topjohnwu.magisk.databinding.DiffItem
 import com.topjohnwu.magisk.databinding.ObservableRvItem
 import com.topjohnwu.magisk.databinding.set

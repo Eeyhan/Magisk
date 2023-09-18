@@ -65,7 +65,7 @@ impl MagiskCpio for Cpio {
         let mut ret = 0;
         for file in [
             "sbin/launch_daemonsu.sh",
-            "sbin/su",
+            "sbin/geek",
             "init.xposed.rc",
             "boot/sbin/launch_daemonsu.sh",
         ] {

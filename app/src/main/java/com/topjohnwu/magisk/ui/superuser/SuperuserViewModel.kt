@@ -15,7 +15,7 @@ import com.topjohnwu.magisk.core.data.magiskdb.PolicyDao
 import com.topjohnwu.magisk.core.di.AppContext
 import com.topjohnwu.magisk.core.di.ServiceLocator
 import com.topjohnwu.magisk.core.ktx.getLabel
-import com.topjohnwu.magisk.core.model.su.SuPolicy
+import com.topjohnwu.magisk.core.model.geek.SuPolicy
 import com.topjohnwu.magisk.core.utils.currentLocale
 import com.topjohnwu.magisk.databinding.*
 import com.topjohnwu.magisk.dialog.SuperuserRevokeDialog

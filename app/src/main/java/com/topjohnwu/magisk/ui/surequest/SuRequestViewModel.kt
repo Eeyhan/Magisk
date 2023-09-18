@@ -25,9 +25,9 @@ import com.topjohnwu.magisk.core.di.AppContext
 import com.topjohnwu.magisk.core.di.ServiceLocator
 import com.topjohnwu.magisk.core.ktx.getLabel
 import com.topjohnwu.magisk.core.ktx.toast
-import com.topjohnwu.magisk.core.model.su.SuPolicy.Companion.ALLOW
-import com.topjohnwu.magisk.core.model.su.SuPolicy.Companion.DENY
-import com.topjohnwu.magisk.core.su.SuRequestHandler
+import com.topjohnwu.magisk.core.model.geek.SuPolicy.Companion.ALLOW
+import com.topjohnwu.magisk.core.model.geek.SuPolicy.Companion.DENY
+import com.topjohnwu.magisk.core.geek.SuRequestHandler
 import com.topjohnwu.magisk.databinding.set
 import com.topjohnwu.magisk.events.BiometricEvent
 import com.topjohnwu.magisk.events.DieEvent

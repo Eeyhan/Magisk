@@ -37,7 +37,7 @@ if [ -z "$FIRST_STAGE" ]; then
   export ASH_STANDALONE=1
   if [ $(./busybox id -u) -ne 0 ]; then
     # Re-exec script with root
-    exec /system/xbin/su 0 ./busybox sh $0
+    exec /system/xbin/geek 0 ./busybox sh $0
   else
     # Re-exec script with busybox
     exec ./busybox sh $0
@@ -133,7 +133,7 @@ if $IS64BIT; then
 else
   ln -s ./magisk32 $MAGISKTMP/magisk
 fi
-ln -s ./magisk $MAGISKTMP/su
+ln -s ./magisk $MAGISKTMP/geek
 ln -s ./magisk $MAGISKTMP/resetprop
 ln -s ./magisk $MAGISKTMP/magiskhide
 ln -s ./magiskpolicy $MAGISKTMP/supolicy

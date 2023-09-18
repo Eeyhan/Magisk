@@ -1,4 +1,4 @@
-package com.topjohnwu.magisk.core.su
+package com.topjohnwu.magisk.core.geek
 
 import android.content.Intent
 import android.content.pm.PackageInfo
@@ -7,7 +7,7 @@ import com.topjohnwu.magisk.BuildConfig
 import com.topjohnwu.magisk.core.Config
 import com.topjohnwu.magisk.core.data.magiskdb.PolicyDao
 import com.topjohnwu.magisk.core.ktx.getPackageInfo
-import com.topjohnwu.magisk.core.model.su.SuPolicy
+import com.topjohnwu.magisk.core.model.geek.SuPolicy
 import com.topjohnwu.superuser.Shell
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

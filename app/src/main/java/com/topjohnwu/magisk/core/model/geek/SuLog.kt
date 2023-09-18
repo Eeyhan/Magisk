@@ -1,4 +1,4 @@
-package com.topjohnwu.magisk.core.model.su
+package com.topjohnwu.magisk.core.model.geek
 
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager

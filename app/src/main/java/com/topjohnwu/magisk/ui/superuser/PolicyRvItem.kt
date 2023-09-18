@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable
 import androidx.databinding.Bindable
 import com.topjohnwu.magisk.BR
 import com.topjohnwu.magisk.R
-import com.topjohnwu.magisk.core.model.su.SuPolicy
+import com.topjohnwu.magisk.core.model.geek.SuPolicy
 import com.topjohnwu.magisk.databinding.DiffItem
 import com.topjohnwu.magisk.databinding.ItemWrapper
 import com.topjohnwu.magisk.databinding.ObservableRvItem

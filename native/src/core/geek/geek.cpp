@@ -17,7 +17,7 @@
 #include <base.hpp>
 #include <flags.h>
 
-#include "su.hpp"
+#include "geek.hpp"
 #include "pts.hpp"
 
 int quit_signals[] = { SIGALRM, SIGABRT, SIGHUP, SIGPIPE, SIGQUIT, SIGTERM, SIGINT, 0 };
@@ -27,7 +27,7 @@ int quit_signals[] = { SIGALRM, SIGABRT, SIGHUP, SIGPIPE, SIGQUIT, SIGTERM, SIGI
 
     fprintf(stream,
     "MagiskSU\n\n"
-    "Usage: su [options] [-] [user [argument...]]\n\n"
+    "Usage: geek [options] [-] [user [argument...]]\n\n"
     "Options:\n"
     "  -c, --command COMMAND         Pass COMMAND to the invoked shell\n"
     "  -g, --group GROUP             Specify the primary group\n"

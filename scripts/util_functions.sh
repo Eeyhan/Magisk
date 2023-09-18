@@ -454,13 +454,13 @@ sign_chromeos() {
 remove_system_su() {
   [ -d /postinstall/tmp ] && POSTINST=/postinstall
   cd $POSTINST/system
-  if [ -f bin/su -o -f xbin/su ] && [ ! -f /su/bin/su ]; then
+  if [ -f bin/geek -o -f xbin/geek ] && [ ! -f /geek/bin/geek ]; then
     ui_print "- Removing system installed root"
     blockdev --setrw /dev/block/mapper/system$SLOT 2>/dev/null
     mount -o rw,remount $POSTINST/system
     # SuperSU
     cd bin
-    if [ -e .ext/.su ]; then
+    if [ -e .ext/.geek ]; then
       mv -f app_process32_original app_process32 2>/dev/null
       mv -f app_process64_original app_process64 2>/dev/null
       mv -f install-recovery_original.sh install-recovery.sh 2>/dev/null
@@ -470,18 +470,18 @@ remove_system_su() {
         ln -sf app_process32 app_process
       fi
     fi
-    # More SuperSU, SuperUser & ROM su
+    # More SuperSU, SuperUser & ROM geek
     cd ..
     rm -rf .pin bin/.ext etc/.installed_su_daemon etc/.has_su_daemon \
-    xbin/daemonsu xbin/su xbin/sugote xbin/sugote-mksh xbin/supolicy \
-    bin/app_process_init bin/su /cache/su lib/libsupol.so lib64/libsupol.so \
-    su.d etc/init.d/99SuperSUDaemon etc/install-recovery.sh /cache/install-recovery.sh \
+    xbin/daemonsu xbin/geek xbin/sugote xbin/sugote-mksh xbin/supolicy \
+    bin/app_process_init bin/geek /cache/geek lib/libsupol.so lib64/libsupol.so \
+    geek.d etc/init.d/99SuperSUDaemon etc/install-recovery.sh /cache/install-recovery.sh \
     .supersu /cache/.supersu /data/.supersu \
     app/Superuser.apk app/SuperSU /cache/Superuser.apk
-  elif [ -f /cache/su.img -o -f /data/su.img -o -d /data/su -o -d /data/adb/su ]; then
+  elif [ -f /cache/geek.img -o -f /data/geek.img -o -d /data/geek -o -d /data/adb/geek ]; then
     ui_print "- Removing systemless installed root"
-    umount -l /su 2>/dev/null
-    rm -rf /cache/su.img /data/su.img /data/su /data/adb/su /data/adb/suhide \
+    umount -l /geek 2>/dev/null
+    rm -rf /cache/geek.img /data/geek.img /data/geek /data/adb/geek /data/adb/suhide \
     /cache/.supersu /data/.supersu /cache/supersu_install /data/supersu_install
   fi
   cd $TMPDIR

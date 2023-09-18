@@ -17,7 +17,7 @@ object Const {
     // Paths
     const val MAGISK_PATH  = "/data/adb/modules"
     const val TMPDIR = "/dev/tmp"
-    const val MAGISK_LOG = "/cache/magisk.log"
+    const val MAGISK_LOG = "/cache/gagisk.log"
 
     // Misc
     val USER_ID = Process.myUid() / 100000

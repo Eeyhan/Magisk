@@ -11,8 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import com.topjohnwu.magisk.R
 import com.topjohnwu.magisk.arch.UIActivity
 import com.topjohnwu.magisk.arch.viewModel
-import com.topjohnwu.magisk.core.su.SuCallbackHandler
-import com.topjohnwu.magisk.core.su.SuCallbackHandler.REQUEST
+import com.topjohnwu.magisk.core.geek.SuCallbackHandler
+import com.topjohnwu.magisk.core.geek.SuCallbackHandler.REQUEST
 import com.topjohnwu.magisk.databinding.ActivityRequestBinding
 import com.topjohnwu.magisk.ui.theme.Theme
 import kotlinx.coroutines.Dispatchers

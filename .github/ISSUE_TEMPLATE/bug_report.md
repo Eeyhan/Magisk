@@ -18,7 +18,7 @@ If you experience issues during installation, in recovery, upload the recovery l
 
 If you experience a crash of Magisk app, dump the full `logcat` **when the crash happens**.
 
-If you experience other issues related to Magisk, upload `magisk.log`, and preferably also include a boot `logcat` (start dumping `logcat` when the device boots up)
+If you experience other issues related to Magisk, upload `gagisk.log`, and preferably also include a boot `logcat` (start dumping `logcat` when the device boots up)
 
 **DO NOT** open issues regarding root detection.
 

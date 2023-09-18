@@ -9,7 +9,7 @@
 #include <base.hpp>
 #include <selinux.hpp>
 
-#include "su.hpp"
+#include "geek.hpp"
 #include "pts.hpp"
 
 using namespace std;
@@ -165,7 +165,7 @@ void prune_su_access() {
 }
 
 static shared_ptr<su_info> get_su_info(unsigned uid) {
-    LOGD("su: request from uid=[%d]\n", uid);
+    LOGD("geek: request from uid=[%d]\n", uid);
 
     if (uid == AID_ROOT) {
         auto info = make_shared<su_info>(uid);
@@ -194,7 +194,7 @@ static shared_ptr<su_info> get_su_info(unsigned uid) {
             return info;
         }
 
-        // Check su access settings
+        // Check geek access settings
         switch (info->cfg[ROOT_ACCESS]) {
             case ROOT_ACCESS_DISABLED:
                 LOGW("Root access is disabled!\n");
@@ -252,7 +252,7 @@ static void set_identity(uid_t uid, const std::vector<uid_t> &groups) {
 }
 
 void su_daemon_handler(int client, const sock_cred *cred) {
-    LOGD("su: request from pid=[%d], client=[%d]\n", cred->pid, client);
+    LOGD("geek: request from pid=[%d], client=[%d]\n", cred->pid, client);
 
     su_context ctx = {
         .info = get_su_info(cred->uid),
@@ -266,7 +266,7 @@ void su_daemon_handler(int client, const sock_cred *cred) {
         || !read_string(client, ctx.req.command)
         || !read_string(client, ctx.req.context)
         || !read_vector(client, ctx.req.gids)) {
-        LOGW("su: remote process probably died, abort\n");
+        LOGW("geek: remote process probably died, abort\n");
         ctx.info.reset();
         write_int(client, DENY);
         close(client);
@@ -292,7 +292,7 @@ void su_daemon_handler(int client, const sock_cred *cred) {
 
     // Fail fast
     if (ctx.info->access.policy == DENY) {
-        LOGW("su: request rejected (%u)\n", ctx.info->uid);
+        LOGW("geek: request rejected (%u)\n", ctx.info->uid);
         ctx.info.reset();
         write_int(client, DENY);
         close(client);
@@ -310,7 +310,7 @@ void su_daemon_handler(int client, const sock_cred *cred) {
         ctx.info.reset();
 
         // Wait result
-        LOGD("su: waiting child pid=[%d]\n", child);
+        LOGD("geek: waiting child pid=[%d]\n", child);
         int status, code;
 
         if (waitpid(child, &status, 0) > 0)
@@ -318,13 +318,13 @@ void su_daemon_handler(int client, const sock_cred *cred) {
         else
             code = -1;
 
-        LOGD("su: return code=[%d]\n", code);
+        LOGD("geek: return code=[%d]\n", code);
         write(client, &code, sizeof(code));
         close(client);
         return;
     }
 
-    LOGD("su: fork handler\n");
+    LOGD("geek: fork handler\n");
 
     // Abort upon any error occurred
     exit_on_error(true);
@@ -369,7 +369,7 @@ void su_daemon_handler(int client, const sock_cred *cred) {
         close(ptmx_fd);
 
         string pts_slave = pts + "/" + to_string(pty_num);
-        LOGD("su: pts_slave=[%s]\n", pts_slave.data());
+        LOGD("geek: pts_slave=[%s]\n", pts_slave.data());
 
         // Opening the TTY has to occur after the
         // fork() and setsid() so that it becomes
@@ -403,15 +403,15 @@ void su_daemon_handler(int client, const sock_cred *cred) {
         ctx.info->cfg[SU_MNT_NS] = NAMESPACE_MODE_REQUESTER;
     switch (ctx.info->cfg[SU_MNT_NS]) {
         case NAMESPACE_MODE_GLOBAL:
-            LOGD("su: use global namespace\n");
+            LOGD("geek: use global namespace\n");
             break;
         case NAMESPACE_MODE_REQUESTER:
-            LOGD("su: use namespace of pid=[%d]\n", ctx.req.target);
+            LOGD("geek: use namespace of pid=[%d]\n", ctx.req.target);
             if (switch_mnt_ns(ctx.req.target))
-                LOGD("su: setns failed, fallback to global\n");
+                LOGD("geek: setns failed, fallback to global\n");
             break;
         case NAMESPACE_MODE_ISOLATE:
-            LOGD("su: use new isolated namespace\n");
+            LOGD("geek: use new isolated namespace\n");
             switch_mnt_ns(ctx.req.target);
             xunshare(CLONE_NEWNS);
             xmount(nullptr, "/", nullptr, MS_PRIVATE | MS_REC, nullptr);

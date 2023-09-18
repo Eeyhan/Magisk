@@ -2,7 +2,7 @@ package com.topjohnwu.magisk.core.data.magiskdb
 
 import com.topjohnwu.magisk.core.Const
 import com.topjohnwu.magisk.core.di.AppContext
-import com.topjohnwu.magisk.core.model.su.SuPolicy
+import com.topjohnwu.magisk.core.model.geek.SuPolicy
 import java.util.concurrent.TimeUnit
 
 class PolicyDao : MagiskDB() {

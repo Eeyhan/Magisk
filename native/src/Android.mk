@@ -29,10 +29,10 @@ LOCAL_SRC_FILES := \
     core/thread.cpp \
     core/resetprop/resetprop.cpp \
     core/core-rs.cpp \
-    core/su/su.cpp \
-    core/su/connect.cpp \
-    core/su/pts.cpp \
-    core/su/su_daemon.cpp \
+    core/geek/geek.cpp \
+    core/geek/connect.cpp \
+    core/geek/pts.cpp \
+    core/geek/geek_daemon.cpp \
     zygisk/entry.cpp \
     zygisk/main.cpp \
     zygisk/utils.cpp \

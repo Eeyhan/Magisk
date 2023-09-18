@@ -1,4 +1,4 @@
-package com.topjohnwu.magisk.core.model.su
+package com.topjohnwu.magisk.core.model.geek
 
 class SuPolicy(val uid: Int) {
     companion object {
