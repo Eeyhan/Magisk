@@ -14,7 +14,7 @@ env_check() {
     [ -f "$MAGISKBIN/magiskpolicy" ] || return 1
   fi
   if [ "$2" -ge 25210 ]; then
-    [ -b "$MAGISKTMP/.magisk/block/preinit" ] || return 2
+    [ -b "$MAGISKTMP/.gagisk/block/preinit" ] || return 2
   fi
   grep -xqF "MAGISK_VER='$1'" "$MAGISKBIN/util_functions.sh" || return 3
   grep -xqF "MAGISK_VER_CODE=$2" "$MAGISKBIN/util_functions.sh" || return 3
@@ -235,7 +235,7 @@ app_init() {
   RAMDISKEXIST=false
   check_boot_ramdisk && RAMDISKEXIST=true
   run_migrations
-  SHA1=$(grep_prop SHA1 $MAGISKTMP/.magisk/config)
+  SHA1=$(grep_prop SHA1 $MAGISKTMP/.gagisk/config)
   check_encryption
 }
 

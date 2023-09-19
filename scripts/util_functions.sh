@@ -66,7 +66,7 @@ getvar() {
   local VARNAME=$1
   local VALUE
   local PROPPATH='/data/.magisk /cache/.magisk'
-  [ ! -z $MAGISKTMP ] && PROPPATH="$MAGISKTMP/.magisk/config $PROPPATH"
+  [ ! -z $MAGISKTMP ] && PROPPATH="$MAGISKTMP/.gagisk/config $PROPPATH"
   VALUE=$(grep_prop $VARNAME $PROPPATH)
   [ ! -z $VALUE ] && eval $VARNAME=\$VALUE
 }
@@ -561,7 +561,7 @@ run_migrations() {
 }
 
 copy_preinit_files() {
-  local PREINITDIR=$(magisk --path)/.magisk/preinit
+  local PREINITDIR=$(magisk --path)/.gagisk/preinit
   if ! grep -q " $PREINITDIR " /proc/mounts; then
     ui_print "- Unable to find preinit dir"
     return 1
