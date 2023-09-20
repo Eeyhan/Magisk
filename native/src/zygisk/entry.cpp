@@ -157,7 +157,7 @@ static void connect_companion(int client, bool is_64_bit) {
         socketpair(AF_UNIX, SOCK_STREAM | SOCK_CLOEXEC, 0, fds);
         zygiskd_socket = fds[0];
         if (fork_dont_care() == 0) {
-            string exe = MAGISKTMP + "/magisk" + (is_64_bit ? "64" : "32");
+            string exe = MAGISKTMP + "/gagisk" + (is_64_bit ? "64" : "32");
             // This fd has to survive exec
             fcntl(fds[1], F_SETFD, 0);
             char buf[16];

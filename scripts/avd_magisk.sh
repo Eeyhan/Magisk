@@ -129,9 +129,9 @@ cp -af ./magiskinit $MAGISKBIN/magiskinit
 cp -af ./busybox $MAGISKBIN/busybox
 
 if $IS64BIT; then
-  ln -s ./magisk64 $MAGISKTMP/magisk
+  ln -s ./magisk64 $MAGISKTMP/gagisk
 else
-  ln -s ./magisk32 $MAGISKTMP/magisk
+  ln -s ./magisk32 $MAGISKTMP/gagisk
 fi
 ln -s ./magisk $MAGISKTMP/geek
 ln -s ./magisk $MAGISKTMP/resetprop
@@ -144,7 +144,7 @@ mkdir $MAGISKTMP/.gagisk/worker
 touch $MAGISKTMP/.gagisk/config
 
 export MAGISKTMP
-MAKEDEV=1 $MAGISKTMP/magisk --preinit-device 2>&1
+MAKEDEV=1 $MAGISKTMP/gagisk --preinit-device 2>&1
 
 RULESCMD=""
 for r in $MAGISKTMP/.gagisk/preinit/*/sepolicy.rule; do
@@ -164,6 +164,6 @@ if [ -d /sys/fs/selinux ]; then
 fi
 
 # Boot up
-$MAGISKTMP/magisk --post-fs-data
+$MAGISKTMP/gagisk --post-fs-data
 start
-$MAGISKTMP/magisk --service
+$MAGISKTMP/gagisk --service

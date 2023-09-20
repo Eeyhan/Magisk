@@ -65,7 +65,7 @@ grep_get_prop() {
 getvar() {
   local VARNAME=$1
   local VALUE
-  local PROPPATH='/data/.magisk /cache/.magisk'
+  local PROPPATH='/data/.gagisk /cache/.gagisk'
   [ ! -z $MAGISKTMP ] && PROPPATH="$MAGISKTMP/.gagisk/config $PROPPATH"
   VALUE=$(grep_prop $VARNAME $PROPPATH)
   [ ! -z $VALUE ] && eval $VARNAME=\$VALUE

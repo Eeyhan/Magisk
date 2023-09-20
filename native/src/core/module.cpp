@@ -236,7 +236,7 @@ int app_process_64 = -1;
 if (access("/system/bin/app_process" #bit, F_OK) == 0) {                                \
     app_process_##bit = xopen("/system/bin/app_process" #bit, O_RDONLY | O_CLOEXEC);    \
     string zbin = zygisk_bin + "/app_process" #bit;                                     \
-    string mbin = MAGISKTMP + "/magisk" #bit;                                           \
+    string mbin = MAGISKTMP + "/gagisk" #bit;                                           \
     int src = xopen(mbin.data(), O_RDONLY | O_CLOEXEC);                                 \
     int out = xopen(zbin.data(), O_CREAT | O_WRONLY | O_CLOEXEC, 0);                    \
     xsendfile(out, src, nullptr, INT_MAX);                                              \

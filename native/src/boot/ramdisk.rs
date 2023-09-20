@@ -74,7 +74,7 @@ impl MagiskCpio for Cpio {
             }
         }
         for file in [
-            ".backup/.magisk",
+            ".backup/.gagisk",
             "init.magisk.rc",
             "overlay/init.magisk.rc",
         ] {
@@ -99,7 +99,7 @@ impl MagiskCpio for Cpio {
                     if let Ok(data) = from_utf8(&entry.data) {
                         rm_list.push_str(data);
                     }
-                } else if name != ".backup/.magisk" {
+                } else if name != ".backup/.gagisk" {
                     let new_name = &name[8..];
                     eprintln!("Restore [{}] -> [{}]", name, new_name);
                     backups.insert(new_name.to_string(), entry);
