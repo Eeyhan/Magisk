@@ -15,7 +15,7 @@ Magisk will mount a `tmpfs` directory to store some temporary data. For devices 
 MAGISKTMP=$(magisk --path)
 
 # Magisk internal stuffs
-INTERNALDIR=$MAGISKTMP/.gagisk
+INTERNALDIR=$MAGISKTMP/.magisk
 
 # /data/adb/modules will be bind mounted here.
 # The original folder is not used due to nosuid mount flag.

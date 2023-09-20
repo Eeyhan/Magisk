@@ -128,7 +128,7 @@ case $((STATUS & 3)) in
   1 )  # Magisk patched
     ui_print "- Magisk patched boot image detected"
     ./magiskboot cpio ramdisk.cpio \
-    "extract .backup/.gagisk config.orig" \
+    "extract .backup/.magisk config.orig" \
     "restore"
     cp -af ramdisk.cpio ramdisk.cpio.orig
     rm -f stock_boot.img
@@ -196,7 +196,7 @@ fi
 "patch" \
 "$SKIP_BACKUP backup ramdisk.cpio.orig" \
 "mkdir 000 .backup" \
-"add 000 .backup/.gagisk config" \
+"add 000 .backup/.magisk config" \
 || abort "! Unable to patch ramdisk"
 
 rm -f ramdisk.cpio.orig config magisk*.xz stub.xz

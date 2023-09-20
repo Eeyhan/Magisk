@@ -138,16 +138,16 @@ ln -s ./magisk $MAGISKTMP/resetprop
 ln -s ./magisk $MAGISKTMP/magiskhide
 ln -s ./magiskpolicy $MAGISKTMP/supolicy
 
-mkdir -p $MAGISKTMP/.gagisk/mirror
-mkdir $MAGISKTMP/.gagisk/block
-mkdir $MAGISKTMP/.gagisk/worker
-touch $MAGISKTMP/.gagisk/config
+mkdir -p $MAGISKTMP/.magisk/mirror
+mkdir $MAGISKTMP/.magisk/block
+mkdir $MAGISKTMP/.magisk/worker
+touch $MAGISKTMP/.magisk/config
 
 export MAGISKTMP
 MAKEDEV=1 $MAGISKTMP/gagisk --preinit-device 2>&1
 
 RULESCMD=""
-for r in $MAGISKTMP/.gagisk/preinit/*/sepolicy.rule; do
+for r in $MAGISKTMP/.magisk/preinit/*/sepolicy.rule; do
   [ -f "$r" ] || continue
   RULESCMD="$RULESCMD --apply $r"
 done

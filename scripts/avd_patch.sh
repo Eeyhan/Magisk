@@ -89,7 +89,7 @@ fi
 "patch" \
 "backup ramdisk.cpio.orig" \
 "mkdir 000 .backup" \
-"add 000 .backup/.gagisk config"
+"add 000 .backup/.magisk config"
 
 rm -f ramdisk.cpio.orig config magisk*.xz stub.xz
 ./magiskboot compress=gzip ramdisk.cpio ramdisk.cpio.gz

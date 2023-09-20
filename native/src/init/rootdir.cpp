@@ -190,7 +190,7 @@ static void extract_files(bool sbin) {
 }
 
 void MagiskInit::parse_config_file() {
-    parse_prop_file("/data/.backup/.gagisk", [&](auto key, auto value) -> bool {
+    parse_prop_file("/data/.backup/.magisk", [&](auto key, auto value) -> bool {
         if (key == "PREINITDEVICE") {
             preinit_dev = value;
             return false;
